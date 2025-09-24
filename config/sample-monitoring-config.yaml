@@ -1,0 +1,140 @@
+# Sample Monitoring Configuration
+# For use with Chapter 4 exercises
+
+monitoring:
+  # Health check configuration
+  health_checks:
+    interval: 30  # seconds
+    timeout: 10   # seconds
+    retries: 3
+    
+    # Services to monitor
+    services:
+      - name: "web-api"
+        url: "https://api.example.com"
+        expected_status: 200
+        headers:
+          User-Agent: "DevOps-Monitor/1.0"
+        
+      - name: "database"
+        url: "https://db.example.com:5432/health"
+        expected_status: 200
+        timeout: 5
+        
+      - name: "cache-redis"
+        url: "redis://redis.example.com:6379"
+        type: "redis"
+        
+      - name: "message-queue"
+        url: "amqp://rabbitmq.example.com:5672"
+        type: "rabbitmq"
+
+  # Alerting configuration
+  alerts:
+    # Slack webhook for notifications
+    slack:
+      webhook_url: "${SLACK_WEBHOOK_URL}"
+      channel: "#alerts"
+      username: "MonitorBot"
+      
+    # Email alerts
+    email:
+      smtp_server: "smtp.gmail.com"
+      smtp_port: 587
+      username: "${EMAIL_USERNAME}"
+      password: "${EMAIL_PASSWORD}"
+      recipients:
+        - "devops@example.com"
+        - "sre@example.com"
+    
+    # Discord webhook
+    discord:
+      webhook_url: "${DISCORD_WEBHOOK_URL}"
+    
+    # Alert thresholds
+    thresholds:
+      response_time_ms: 5000  # Alert if response time > 5 seconds
+      error_rate_percent: 5   # Alert if error rate > 5%
+      consecutive_failures: 3  # Alert after 3 consecutive failures
+
+  # Metrics collection
+  metrics:
+    enabled: true
+    collection_interval: 60  # seconds
+    retention_days: 30
+    
+    # System metrics to collect
+    system:
+      - cpu_usage
+      - memory_usage
+      - disk_usage
+      - network_io
+      - load_average
+    
+    # Application metrics
+    application:
+      - request_count
+      - response_time
+      - error_rate
+      - active_connections
+
+# Service discovery configuration
+service_discovery:
+  enabled: true
+  
+  # Kubernetes service discovery
+  kubernetes:
+    enabled: true
+    namespace: "default"
+    label_selector: "app=web"
+    
+  # Consul service discovery  
+  consul:
+    enabled: false
+    address: "consul.example.com:8500"
+    
+  # File-based service discovery
+  file:
+    enabled: true
+    path: "/etc/services.json"
+    watch: true
+
+# Logging configuration
+logging:
+  level: "INFO"
+  format: "%(asctime)s [%(levelname)s] %(name)s: %(message)s"
+  
+  handlers:
+    console:
+      enabled: true
+      level: "INFO"
+      
+    file:
+      enabled: true
+      level: "DEBUG"
+      path: "/var/log/monitoring.log"
+      max_size_mb: 100
+      backup_count: 5
+      
+    syslog:
+      enabled: false
+      address: "localhost:514"
+
+# Security configuration
+security:
+  # API authentication
+  auth:
+    enabled: true
+    type: "bearer_token"  # or "basic_auth", "api_key"
+    
+  # Rate limiting
+  rate_limiting:
+    enabled: true
+    requests_per_minute: 1000
+    burst_size: 100
+    
+  # HTTPS settings
+  tls:
+    enabled: true
+    cert_file: "/etc/ssl/certs/monitor.crt"
+    key_file: "/etc/ssl/private/monitor.key"

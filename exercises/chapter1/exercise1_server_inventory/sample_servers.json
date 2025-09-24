@@ -1,0 +1,102 @@
+{
+  "servers": [
+    {
+      "name": "web-server-01",
+      "ip": "192.168.1.10",
+      "os": "Ubuntu 22.04",
+      "cpu_cores": 4,
+      "memory_gb": 16,
+      "disk_gb": 500,
+      "status": "online",
+      "tags": ["web", "production", "frontend"],
+      "created_at": "2024-01-15T10:30:00",
+      "updated_at": "2024-01-15T15:45:00"
+    },
+    {
+      "name": "web-server-02", 
+      "ip": "192.168.1.11",
+      "os": "Ubuntu 22.04",
+      "cpu_cores": 4,
+      "memory_gb": 16,
+      "disk_gb": 500,
+      "status": "online",
+      "tags": ["web", "production", "frontend"],
+      "created_at": "2024-01-15T10:35:00",
+      "updated_at": "2024-01-15T15:45:00"
+    },
+    {
+      "name": "db-server-01",
+      "ip": "192.168.1.20",
+      "os": "CentOS 8",
+      "cpu_cores": 8,
+      "memory_gb": 32,
+      "disk_gb": 1000,
+      "status": "online",
+      "tags": ["database", "production", "mysql"],
+      "created_at": "2024-01-15T09:00:00",
+      "updated_at": "2024-01-15T16:20:00"
+    },
+    {
+      "name": "db-server-02",
+      "ip": "192.168.1.21", 
+      "os": "CentOS 8",
+      "cpu_cores": 8,
+      "memory_gb": 32,
+      "disk_gb": 1000,
+      "status": "maintenance",
+      "tags": ["database", "production", "mysql", "replica"],
+      "created_at": "2024-01-15T09:15:00",
+      "updated_at": "2024-01-15T14:30:00"
+    },
+    {
+      "name": "cache-server-01",
+      "ip": "192.168.1.30",
+      "os": "Ubuntu 22.04",
+      "cpu_cores": 2,
+      "memory_gb": 8,
+      "disk_gb": 200,
+      "status": "online",
+      "tags": ["cache", "production", "redis"],
+      "created_at": "2024-01-15T11:00:00",
+      "updated_at": "2024-01-15T16:00:00"
+    },
+    {
+      "name": "test-server-01",
+      "ip": "192.168.1.100",
+      "os": "Ubuntu 22.04",
+      "cpu_cores": 2,
+      "memory_gb": 8,
+      "disk_gb": 250,
+      "status": "offline",
+      "tags": ["testing", "development"],
+      "created_at": "2024-01-15T12:00:00",
+      "updated_at": "2024-01-15T13:30:00"
+    },
+    {
+      "name": "monitoring-server-01",
+      "ip": "192.168.1.40",
+      "os": "Ubuntu 22.04",
+      "cpu_cores": 4,
+      "memory_gb": 16,
+      "disk_gb": 500,
+      "status": "online",
+      "tags": ["monitoring", "production", "prometheus", "grafana"],
+      "created_at": "2024-01-15T08:30:00",
+      "updated_at": "2024-01-15T16:45:00"
+    },
+    {
+      "name": "load-balancer-01",
+      "ip": "192.168.1.5",
+      "os": "Ubuntu 22.04", 
+      "cpu_cores": 2,
+      "memory_gb": 4,
+      "disk_gb": 100,
+      "status": "online",
+      "tags": ["loadbalancer", "production", "nginx"],
+      "created_at": "2024-01-15T08:00:00",
+      "updated_at": "2024-01-15T16:50:00"
+    }
+  ],
+  "inventory_created_at": "2024-01-15T08:00:00",
+  "exported_at": "2024-01-15T17:00:00"
+}

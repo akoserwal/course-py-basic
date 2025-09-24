@@ -1,0 +1,22 @@
+{
+  "web-01": {
+    "ip": "192.168.1.10",
+    "role": "webserver",
+    "environment": "production",
+    "status": "active",
+    "created_at": "2025-09-24T16:50:56.867091",
+    "last_updated": "2025-09-24T16:50:56.867097",
+    "tags": [],
+    "metadata": {}
+  },
+  "db-01": {
+    "ip": "192.168.1.20",
+    "role": "database",
+    "environment": "production",
+    "status": "active",
+    "created_at": "2025-09-24T16:54:18.725918",
+    "last_updated": "2025-09-24T16:54:18.725922",
+    "tags": [],
+    "metadata": {}
+  }
+}
